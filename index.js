@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const sqlite3 = require("sqlite3").verbose();
+const path = require("path");
 
 const app = express();
 
@@ -11,8 +12,8 @@ app.use(cors({
 
 app.use(express.json());
 
-
-const db = new sqlite3.Database("./transactions.db", (err) => {
+const dbPath = path.resolve(__dirname, "transactions.db");
+const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.log("Error opening database", err);
     } else {
@@ -29,14 +30,11 @@ const db = new sqlite3.Database("./transactions.db", (err) => {
                 if (err) {
                     console.log("Error creating transactions table", err);
                 }
-            });
-    }
-});
 
-db.run(`
-    INSERT INTO transactions (type, amount, description, date, running_balance) 
-    VALUES ('credit', 1000, 'Initial deposit', '2023-01-01', 1000)
-`);
+                
+            }
+)}
+        })
 
 app.get('/', (req, res) => {
     res.send('Hello, the server is running!');
