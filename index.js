@@ -4,8 +4,13 @@ const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
 
+app.use(cors({
+    origin: '*' ,
+    methods: 'GET,POST,PUT,DELETE'
+}));
+
 app.use(express.json());
-app.use(cors());
+
 
 const db = new sqlite3.Database("./transactions.db", (err) => {
     if (err) {
@@ -26,6 +31,15 @@ const db = new sqlite3.Database("./transactions.db", (err) => {
                 }
             });
     }
+});
+
+db.run(`
+    INSERT INTO transactions (type, amount, description, date, running_balance) 
+    VALUES ('credit', 1000, 'Initial deposit', '2023-01-01', 1000)
+`);
+
+app.get('/', (req, res) => {
+    res.send('Hello, the server is running!');
 });
 
 app.get('/transactions', (req, res) => {
