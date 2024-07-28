@@ -1,0 +1,56 @@
+.new_transactionheading {
+    color: grey;
+}
+.new-transaction-main-bg {
+    padding-left: 25px;
+    width: 90%;
+}
+
+.option-select-style {
+    width: 50%;
+}
+
+.label-spacing {
+    margin-right: 25px;
+    width: 20%;
+    color: grey;
+}
+
+.enter-values {
+    height: 50px;
+    outline: none;
+   
+    border-style: none;
+    width: 50%;
+    border-bottom: 1px solid black;
+}
+.each-enteries-container {
+    display: flex;
+    
+}
+
+.butons_container {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.save-button {
+    background-color: aqua;
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    margin-right: 10px;
+
+
+}
+
+.cancel-button {
+    background-color: grey;
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    color: beige;
+}
