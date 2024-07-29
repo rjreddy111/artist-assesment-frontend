@@ -1,0 +1,28 @@
+GET http://localhost:4001/transactions
+
+###
+
+POST http://localhost:4001/transactions
+Content-Type: application/json
+
+{
+    "type" : "debit", 
+    "amount" : 3000,
+    "description" : "Misc Expenses",
+    "date" : "2020-02-18"
+}
+
+### 
+
+PUT http://localhost:4001/transactions/1 
+Content-Type: :application/json
+
+{
+    "type":"credit", 
+"amount":6000, 
+"description" : "Credited into office account", 
+"date" : "2020-02-17"
+}
+
+###
+DELETE http://localhost:4001/transactions/46
